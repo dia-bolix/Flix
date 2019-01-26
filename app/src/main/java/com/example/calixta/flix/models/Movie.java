@@ -3,9 +3,15 @@ package com.example.calixta.flix.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+@Parcel
+
+
 
 public class Movie {
     //attributes all movies have
@@ -13,6 +19,12 @@ public class Movie {
     String title;
     String overview;
     String backdrop_url;
+    float rating;
+    int id;
+
+    //an empty constructor for the parcel library
+    public Movie() {
+    }
 
     //a constructor that takes a json object and creates a movie object
     public Movie(JSONObject jsonObject) throws JSONException {
@@ -22,6 +34,11 @@ public class Movie {
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
         backdrop_url = jsonObject.getString("backdrop_path");
+        id = jsonObject.getInt("id");
+
+        //big decimal used to get a float out
+        rating = BigDecimal.valueOf(jsonObject.getDouble("vote_average")).floatValue();
+
     }
 
     //takes json array then iterates through array and generates a list of movies
@@ -52,5 +69,12 @@ public class Movie {
 
     public String getBackdrop_url() {
         return String.format("https://image.tmdb.org/t/p/w342%s", backdrop_url);
+    }
+
+    public float getRating() {
+        return rating;
+    }
+    public  int getId() {
+        return id;
     }
 }

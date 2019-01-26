@@ -1,10 +1,12 @@
 package com.example.calixta.flix;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.example.calixta.flix.adapters.MoviesAdapter;
 import com.example.calixta.flix.models.Movie;
@@ -72,8 +74,35 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-        );
 
+        );
+        class RecyclerDecoration extends RecyclerView.ItemDecoration{
+            private int space;
+
+            public RecyclerDecoration(int space) {
+                this.space = space;
+            }
+
+            @Override
+            public void getItemOffsets(Rect outRect, View view,
+                                       RecyclerView parent, RecyclerView.State state) {
+                outRect.left = space;
+                outRect.right = space;
+                outRect.bottom = space;
+
+                // Add top margin only for the first item to avoid double space between items
+                if (parent.getChildLayoutPosition(view) == 0) {
+                    outRect.top = space;
+                } else {
+                    outRect.top = 0;
+                }
+            }
+        }
+        //implements the recycler decoration class, which adds spacing between items in recyclerview
+        RecyclerDecoration decoration = new RecyclerDecoration(50);
+        rvMovies.addItemDecoration(decoration);
 
     }
 }
+
+
