@@ -25,7 +25,7 @@ public class MovieDetail extends YouTubeBaseActivity {
     TextView detail_overview;
     RatingBar ratingBar;
     Movie movie;
-    public static final String key = "AIzaSyA4uziuosVODpV8M8syJfbMCCOMMOHfHhY";
+    public static final String key = "a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String  trailer_api = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     YouTubePlayerView YoutubePlayerView;
 
