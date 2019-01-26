@@ -57,3 +57,4 @@ I had difficulty getting Android Studio to display correctly, had to run the app
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Androids
+- [Parceler](https://github.com/johncarl81/parceler) - Android Parcelable code generator for Google Android
